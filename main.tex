@@ -17,4 +17,15 @@
  \(\textbf{y}\) : \(\in \{0,1\}^n\),vector of phenotype, \(\textbf{y}_i =1\) , \(i\) -th individual has disease, in case
  GWAS : \textit{genome-wide association studies} , given \(X\) and \(\textbf{y}\) , find SNPs associated with disease. To test if  \(\textbf{y}\) and  \(\textbf{x}_i\) are correlated
 \(\chi^2_i=\frac{(n-k-1)|\textbf{x}_i\cdot\textbf{ y}|^2}{|\textbf{x}_i|^2|\textbf{y}|^2}\) 
+												
+\subsection{Return the top \(m_{ret}\) scoring SNPs}
+For each $i$, compute $s_i=|\textbf{x}_i\cdot \textbf{y}|+Lap(0,\frac{2\Delta}{\epsilon})$
+\[\Delta=\max_{i\in \{1,...,n\}}\max_{S\subset \{1,...,m\},|S|=m_{ret}}\Sigma_{j\in S}{|x_{ij}|}\] 
+Returns the $m_{ret}$ SNPs with the largest value of $s_i$
+Define the score function
+$$q(i_1,i_2,...,i_{m_{ret}},\textbf{y})=\Sigma_{j=1}^{m_{ret}}{|\textbf{x}_{i_j}\cdot \textbf{y}|}$$
+$|q(i_1,i_2,...,i_{m_{ret}},\textbf{y})-q(i_1,i_2,...,i_{m_{ret}},\textbf{y'})|=|\Sigma_{j=1}^{m_{ret}}{|\textbf{x}_{i_j}\cdot \textbf{y}|-|\textbf{x}_{i_j}\cdot \textbf{y'}|}|\leq\Sigma_{j=1}^{m_{ret}}{||\textbf{x}_{i_j}\cdot \textbf{y}|-|\textbf{x}_{i_j}\cdot \textbf{y'}||}\leq \Sigma_{j=1}^{m_{ret}}{|\textbf{x}_{i_j}\cdot \textbf{y}-\textbf{x}_{i_j}\cdot \textbf{y'}|}$
+Picking $m_{ret}$ SNPs without repetition, where the probability of picking the $i$-th SNP is proportional
+to $\exp(\frac{|x_i\cdot y|\epsilon}{2\Delta})$
+
 \end{document}
