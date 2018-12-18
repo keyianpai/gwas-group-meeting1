@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{test}
+\author{2995452226 }
+\date{September 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+ \(G\) : a group of \(n\) individuals genotyped at \(m\) SNPs (\textit{single-nucleotide polymorphisms}) denoted by a \(n\) by \(m\) genotype matrix \(G=(g_{ij})\) ,where \(g_{ij}\in \{0,1,2\}\) is the number of the \textit{minor allele}   
+ SNP : A genetic variant that consists of a single DNA base-pair change, usually resulting in two possible allelic identities at that position.(i.e., a SNP is a genetic marker consisting of a single biallelic locus with alleles a and A )
+ \(X\) : mean centering and variance normalizing each column of the genotype matrix \(G\)
+ \(\textbf{x}_i\) : \(i\) -th column of \(X\)
+ \(\textbf{y}\) : \(\in \{0,1\}^n\),vector of phenotype, \(\textbf{y}_i =1\) , \(i\) -th individual has disease, in case
+ GWAS : \textit{genome-wide association studies} , given \(X\) and \(\textbf{y}\) , find SNPs associated with disease. To test if  \(\textbf{y}\) and  \(\textbf{x}_i\) are correlated
+\(\chi^2_i=\frac{(n-k-1)|\textbf{x}_i\cdot\textbf{ y}|^2}{|\textbf{x}_i|^2|\textbf{y}|^2}\) 
+\end{document}
